@@ -1,3 +1,1 @@
-web: gunicorn GameMax.wsgi:application --log-file - --log-level debug
-python manage.py collectstatic --noinput
-manage.py migrate
+web: gunicorn GameMax.wsgi --log-file - --log-level debug
