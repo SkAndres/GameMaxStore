@@ -1,2 +1,0 @@
-web: gunicorn GameMax.wsgi
-release: python manage.py migrate

@@ -1,0 +1,1 @@
+web: gunicorn GameMax.wsgi:gamemaxstore --log-file - --log-level debug
