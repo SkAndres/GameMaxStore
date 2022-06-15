@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'GameMax.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd1gfu22fd4engp',
-        'USER': 'updfjyeyfxcpdc',
-        'PASSWORD': '641b44b1c78a5eda7afa1945d1af9123dc1a72bbfadb611a18e21c8c49983c92',
-        'HOST': 'ec2-3-226-163-72.compute-1.amazonaws.com',
+        'NAME': 'GameMaxStore.db',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
