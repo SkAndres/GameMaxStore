@@ -1,2 +1,1 @@
-web: python manage.py runserver 0.0.0.0:8000
-python manage.py migrate
+web: gunicorn GameMax.wsgi --log-file -
