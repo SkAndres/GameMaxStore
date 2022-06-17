@@ -1,0 +1,5 @@
+from home.models import Categories
+
+
+def categories(request):
+    return {'categories': Categories.objects.all()}
