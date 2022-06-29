@@ -181,5 +181,5 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 USE_DJANGO_JQUERY = True
-GOOGLE_API_KEY = config("GOOGLE_API_KEY")
+GOOGLE_API_KEY = 'AIzaSyDEWvBrnVegE07kwLYp-wHr2DT-1N19nd4'
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", GOOGLE_API_KEY)
