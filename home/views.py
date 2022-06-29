@@ -1,23 +1,25 @@
 from django.shortcuts import render
 from .models import Product, Order
+from cart.forms import CartAddProductForm
 
 # Create your views here.
 
 
 def index(request):
     items = Product.objects.all().order_by('-title')
-    return render(request, 'home.html', {'items': items})
+    form = CartAddProductForm()
+    return render(request, 'home.html', {'items': items, 'form': form})
 
 
 def product(request, item_id):
-    devices = Product.objects.get(pk=item_id)
+    device = Product.objects.get(pk=item_id)
+    form = CartAddProductForm()
     rel_prods = Product.objects.all()
-    return render(request, 'product.html', {'devices': devices, 'rel_prods': rel_prods})
+    return render(request, 'product.html', {'device': device, 'rel_prods': rel_prods, 'form': form})
 
 
 def chosen_category(request, category_id):
     by_category = Product.objects.filter(category=category_id)
-    print(by_category)
     return render(request, 'category.html', {'by_category': by_category})
 
 

@@ -13,21 +13,21 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="{% url 'home' %}">GameMax</a>
+                <a class="navbar-brand" href="{% url 'home:home' %}">GameMax</a>
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home:home' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'home' %}">All products</a></li>
+                                <li><a class="dropdown-item" href="{% url 'home:home' %}">All products</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 {% for category in categories %}
-                                    <li><a class="dropdown-item" href="{% url 'chosen_category' category.id %}">{{category}}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'home:chosen_category' category.id %}">{{category}}</a></li>
                                 {%endfor%}
                             </ul>
                         </li>
@@ -51,16 +51,16 @@
                         </ul>
                     </div>
                     &nbsp;
-                    <form action="" class="d-flex">
+                    <a href="{% url 'cart:cart_detail' %}">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">{{cart_items|length}}</span>
                         </button>
-                    </form>
+                    </a>
                     {% else %}
                     <a href="{% url 'log_in' %}" type="button" class="btn btn-outline-primary me-2">login</a>
-                    <a href="{% url 'sing-up' %}" type="button" class="btn btn-primary">Sing-up</a>
+                    <a href="{% url 'sign-up' %}" type="button" class="btn btn-primary">Sing-up</a>
                     {% endif %}
                 </div>
             </div>
@@ -68,11 +68,15 @@
         </div>
     </div>
 </head>
+
 <body>
 {% block content %}
+
 {% endblock %}
-<footer class="py-5 bg-dark">
-    <div class="container"><p class="m-0 text-center text-white">© GameMax by 2022</p></div>
-</footer>
+<div class="container px-4 px-lg-5 my-5">
+    <footer class="py-5 bg-dark">
+        <div class="container"><p class="m-0 text-center text-white">© GameMax by 2022</p></div>
+    </footer>
+</div>
 </body>
 </html>
