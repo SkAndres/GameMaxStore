@@ -2,48 +2,58 @@
 
 {% block title %}
 
-{{devices.title}}
+{{device.title}}
 
 {% endblock %}
 
 {% block content %}
-{% csrf_token %}
     <div class="container px-4 px-lg-5 my-5">
+        {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{message.tags}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="col-md-6">
-                <img class="card-img-top mb-5 mb-md-0" src="{{devices.imagine.url}}" ></div>
+                <img class="card-img-top mb-5 mb-md-0" src="{{device.image.url}}" ></div>
             <div class="col-md-6">
                 <div class="small mb-1"></div>
-                <h1 class="display-5 fw-bolder">{{devices.title}}</h1>
-                {% if devices.quantity is not 0%}
-                        <p style="color: green">Ready to ship<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
-                            <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path>
-                        </svg></p>
-                        {% else %}
-                        <p style="color:black">Not available<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-x-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM6.854 8.146a.5.5 0 1 0-.708.708L7.293 10l-1.147 1.146a.5.5 0 0 0 .708.708L8 10.707l1.146 1.147a.5.5 0 0 0 .708-.708L8.707 10l1.147-1.146a.5.5 0 0 0-.708-.708L8 9.293 6.854 8.146z"></path>
-                        </svg></p>
-                        {% endif %}
+                <h1 class="display-5 fw-bolder">{{device.title}}</h1>
+                {% if device.quantity is not 0%}
+                    <p style="color: green">Ready to ship <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+                        <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path></svg>
+                    </p>
+                {% else %}
+                    <p style="color:black">Not available <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-x-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM6.854 8.146a.5.5 0 1 0-.708.708L7.293 10l-1.147 1.146a.5.5 0 0 0 .708.708L8 10.707l1.146 1.147a.5.5 0 0 0 .708-.708L8.707 10l1.147-1.146a.5.5 0 0 0-.708-.708L8 9.293 6.854 8.146z"></path></svg>
+                    </p>
+                {% endif %}
                 <div class="fs-5 mb-5">
                     <span class="text-decoration-line-through"></span>
-                    <h2>$ {{devices.price}}</h2>
+                    <h2>$ {{device.price}}</h2>
                 </div>
                 <p class="lead">
-                    {{devices.description}}
+                    {{device.description}}
                 </p>
                 <br>
-                <div class="d-flex">
-                    <form method="post" action="{% url 'new_order' devices.id %}">
-                    <input class="form-control text-center me-3" id="inputQuantity" value="1" style="max-width: 3rem">
-                    <button class="btn btn-outline-dark flex-shrink-0" type="submit">
-                        <i class="bi-cart-fill me-1"></i>
-                        Add to cart
-                    </button>
+                <div id="wrapperDiv">
+                    <form method="post" action="{% url 'cart:cart_add' device.id%}">{% csrf_token %}
+                        <div id="div1"  style="padding:10px;float:left">{{form}}</div>
+                        <div id="div2" style="padding:10px;float:left">
+                            <button type="submit" class="btn btn-success">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" style="text-align:left" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+                                </svg>
+                                Buy
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 <section class="py-5 bg-light">
@@ -51,19 +61,27 @@
         <h2 class="fw-bolder mb-4">Related products</h2>
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             {% for rel_prod in rel_prods %}
-            {% if rel_prod.id != devices.id %}
+            {% if rel_prod.id != device.id %}
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="{{rel_prod.imagine.url}}" alt="...">
+                        <img class="card-img-top" src="{{rel_prod.image.url}}" alt="...">
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <a href="{% url 'related_prod' rel_prod.id %}" type="submit" style="color:black"><h5 class="fw-bolder">{{rel_prod.title}}</h5></a>
+                                <a href="{% url 'home:related_prod' rel_prod.id %}" type="submit"><h5 class="fw-bolder">{{rel_prod.title}}</h5></a>
                                 <!-- Product price-->
                                 <h5 class="ng-star-inserted" align="center" style="font-size:30px"><span class="goods-tile__price-value">${{rel_prod.price}}
                                 </span><span class="goods-tile__price-currency"></span></h5>
+                               <form method="post" action="{% url 'cart:cart_add_common' rel_prod.id%}">{% csrf_token %}
+                                    <button type="submit" class="btn btn-success">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"  style="text-align:left" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+                                        </svg>
+                                        Buy
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>

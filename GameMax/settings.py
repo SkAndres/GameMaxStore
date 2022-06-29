@@ -40,10 +40,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home.apps.HomeConfig',
     'account.apps.AccountConfig',
-    'storages'
+    'home.apps.HomeConfig',
+    'cart.apps.CartConfig',
+    'orders.apps.OrdersConfig',
+    'phonenumber_field',
+    'cities_light',
+
+    'address',
+    'storages',
 ]
+
+CART_SESSION_ID = 'cart'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -69,9 +77,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'home.context_processors.categories'
+                'home.context_processors.categories',
+                'home.context_processors.cart_items',
             ],
-
         },
     },
 ]
@@ -168,3 +176,10 @@ AWS_LOCATION_ADMIN = 'admin'
 ADMIN_MEDIA_PREFIX = "S3://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION_ADMIN)
 DEFAULT_FILE_STORAGE = 'GameMax.storages.MediaStore'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+USE_DJANGO_JQUERY = True
+GOOGLE_API_KEY = config("GOOGLE_API_KEY")
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", GOOGLE_API_KEY)

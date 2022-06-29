@@ -13,7 +13,7 @@ class Categories(models.Model):
 
 class Product(models.Model):
     category = models.ForeignKey(Categories, null=False, on_delete=models.CASCADE)
-    imagine = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
     title = models.CharField(max_length=190)
     price = models.FloatField()
     description = models.TextField()

@@ -1,8 +1,6 @@
 from django.urls import path
 from django.contrib.auth import views as auth_view
-from django.contrib.auth import views as user_creations
-from django.contrib.auth import views as auth_views
-from .forms import UserPasswordResetForm, UserSetPasswordForm, CustomUserCreationForm
+from .forms import UserPasswordResetForm, UserSetPasswordForm
 from . import views
 
 urlpatterns = [
@@ -25,6 +23,6 @@ urlpatterns = [
         template_name="registration/reset_password_complete.html",
     ), name="password_reset_complete"),
 
-    path('sing-up/', views.user_registration, name='sing-up'),
+    path('sign-up/', views.user_registration, name='sign-up'),
 
 ]

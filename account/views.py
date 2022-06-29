@@ -32,7 +32,7 @@ def user_registration(request):
             return redirect('home')
     else:
         form = CustomUserCreationForm()
-    return render(request, 'registration/sing_up.html', {'form': form})
+    return render(request, 'registration/sign_up.html', {'form': form})
 
 
 @login_required
