@@ -1,30 +1,50 @@
 from django import forms
 from .models import Order
+from phonenumber_field.widgets import PhoneNumberPrefixWidget
+from phonenumber_field.formfields import PhoneNumberField
+from django_countries.fields import CountryField
+from django_countries.widgets import CountrySelectWidget
+from postal_code.utils import verify_cap
+from postal_code.choices import StatusCAP
+from django.forms import ModelForm
+from localflavor.ua.forms import UAPostalCodeField
+from django_google_maps.widgets import GoogleMapsAddressWidget
 from address.forms import AddressField
 
 
-class OrderForm(forms.Form):
+class OrderForm(ModelForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={
                 'type': 'text',
                 'class': 'form-control',
                 'placeholder': 'First name',
+                'style': 'width: 300px',
     }))
     last_name = forms.CharField(widget=forms.TextInput(attrs={
         'type': 'text',
         'class': 'form-control',
         'placeholder': 'Last name',
+        'style': 'width: 300px',
     }))
     email = forms.CharField(widget=forms.EmailInput(attrs={
         'type': 'text',
         'class': 'form-control',
         'placeholder': 'Email',
+        'style': 'width: 300px',
+
     }))
-    address = AddressField(widget=forms.TextInput(attrs={
+    phone_number = PhoneNumberField(widget=PhoneNumberPrefixWidget(initial='US', attrs={'class': 'form-control'}))
+    country = CountryField().formfield(
+        widget=CountrySelectWidget(
+            attrs={'class': 'form-control',
+                   'style': 'width: 300px',
+                   }))
+    cap = UAPostalCodeField(widget=forms.TextInput(attrs={
         'type': 'text',
         'class': 'form-control',
-        'placeholder': 'First name"',
+        'style': 'width: 150px',
     }))
+    address = AddressField()
 
     class Meta:
         model = Order
-        fields = ("first_name", "last_name", "email", "phone_number", "address")
+        fields = ("first_name", "last_name", "email", 'phone_number', 'country', 'cap', 'address')

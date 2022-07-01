@@ -23,15 +23,3 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
-
-
-class Order(models.Model):
-    STATUS = (
-        ('Pending', 'Pending'),
-        ('Out for delivery', 'Out for delivery'),
-        ('Delivered', 'Delivered'),
-    )
-    customer = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, null=True, on_delete=models.CASCADE)
-    data_created = models.DateTimeField(auto_now_add=True, null=True)
-    status = models.CharField(null=True, choices=STATUS, max_length=200)

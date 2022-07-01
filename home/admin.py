@@ -15,7 +15,4 @@ class Product(admin.ModelAdmin):
     list_filter = ('category', 'title', 'price')
 
 
-@admin.register(Order)
-class Order(admin.ModelAdmin):
-    list_display = ('id', 'customer', 'product', 'status')
-    list_filter = ('id', 'customer', 'product', 'status')
+

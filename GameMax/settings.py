@@ -45,10 +45,13 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
     'phonenumber_field',
-    'cities_light',
-
-    'address',
+    'django_countries',
+    'ajax_select',
     'storages',
+    'localflavor',
+    'easy_maps',
+    'django_google_maps',
+    'address',
 ]
 
 CART_SESSION_ID = 'cart'
@@ -181,5 +184,8 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 USE_DJANGO_JQUERY = True
-GOOGLE_API_KEY = 'AIzaSyDEWvBrnVegE07kwLYp-wHr2DT-1N19nd4'
-GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", GOOGLE_API_KEY)
+
+GOOGLE_MAPS_API_KEY = 'AIzaSyDEWvBrnVegE07kwLYp-wHr2DT-1N19nd4'
+GOOGLE_API_KEY = 'AIzaSyD--AIzaSyDEWvBrnVegE07kwLYp-wHr2DT-1N19nd4-SjQBE'
+
+EASY_MAPS_GOOGLE_KEY = GOOGLE_MAPS_API_KEY
