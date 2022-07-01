@@ -98,7 +98,7 @@ class CustomUserCreationForm(UserCreationForm):
         email = self.cleaned_data['email']
         check = User.objects.filter(email=email)
         if check:
-            raise forms.ValidationError("This email already exist!")
+            raise forms.ValidationError('This email already exist!')
         return email
 
     def clean_password2(self):
