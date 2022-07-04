@@ -8,7 +8,6 @@ from postal_code.utils import verify_cap
 from postal_code.choices import StatusCAP
 from django.forms import ModelForm
 from localflavor.ua.forms import UAPostalCodeField
-from django_google_maps.widgets import GoogleMapsAddressWidget
 from address.forms import AddressField, AddressWidget
 
 

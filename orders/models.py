@@ -3,14 +3,13 @@ from home.models import Product
 from cart.cart import Cart
 from phonenumber_field.modelfields import PhoneNumberField
 from django_countries.fields import CountryField
-from django_google_maps import fields as map_fields
 from address.models import AddressField
 from places.fields import PlacesField
-# Create your models here.
+from django_google_maps import fields as map_fields
 
-
-class MyLocationModel(models.Model):
-    location = PlacesField()
+class Rental(models.Model):
+    address = map_fields.AddressField(max_length=200)
+    geolocation = map_fields.GeoLocationField(max_length=100)
 
 
 class Order(models.Model):
@@ -19,8 +18,8 @@ class Order(models.Model):
     email = models.EmailField(max_length=125)
     phone_number = PhoneNumberField()
     country = CountryField()
-    cap = models.IntegerField()
-    address = models.ForeignKey(MyLocationModel, null=True, on_delete=models.CASCADE)
+    cap = models.IntegerField(null=True)
+    address = models.CharField(max_length=50)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
