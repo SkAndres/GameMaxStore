@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'easy_maps',
     'django_google_maps',
     'address',
+    'places',
 ]
 
 CART_SESSION_ID = 'cart'
@@ -186,6 +187,12 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 USE_DJANGO_JQUERY = True
 
 GOOGLE_MAPS_API_KEY = 'AIzaSyDEWvBrnVegE07kwLYp-wHr2DT-1N19nd4'
-GOOGLE_API_KEY = 'AIzaSyD--AIzaSyDEWvBrnVegE07kwLYp-wHr2DT-1N19nd4-SjQBE'
+GOOGLE_API_KEY = 'AIzaSyDEWvBrnVegE07kwLYp-wHr2DT-1N19nd4'
 
 EASY_MAPS_GOOGLE_KEY = GOOGLE_MAPS_API_KEY
+
+
+PLACES_MAPS_API_KEY = 'AIzaSyDEWvBrnVegE07kwLYp-wHr2DT-1N19nd4'
+PLACES_MAP_WIDGET_HEIGHT = 480
+PLACES_MAP_OPTIONS = '{"center": { "lat": 38.971584, "lng": -95.235072 }, "zoom": 10}'
+PLACES_MARKER_OPTIONS = '{"draggable": true}'

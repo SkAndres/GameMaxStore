@@ -5,7 +5,12 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django_countries.fields import CountryField
 from django_google_maps import fields as map_fields
 from address.models import AddressField
+from places.fields import PlacesField
 # Create your models here.
+
+
+class MyLocationModel(models.Model):
+    location = PlacesField()
 
 
 class Order(models.Model):
@@ -15,7 +20,7 @@ class Order(models.Model):
     phone_number = PhoneNumberField()
     country = CountryField()
     cap = models.IntegerField()
-    address = AddressField(on_delete=models.CASCADE)
+    address = models.ForeignKey(MyLocationModel, null=True, on_delete=models.CASCADE)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 

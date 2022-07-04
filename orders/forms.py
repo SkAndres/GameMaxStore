@@ -9,7 +9,8 @@ from postal_code.choices import StatusCAP
 from django.forms import ModelForm
 from localflavor.ua.forms import UAPostalCodeField
 from django_google_maps.widgets import GoogleMapsAddressWidget
-from address.forms import AddressField
+from address.forms import AddressField, AddressWidget
+
 
 
 class OrderForm(ModelForm):
@@ -43,7 +44,7 @@ class OrderForm(ModelForm):
         'class': 'form-control',
         'style': 'width: 150px',
     }))
-    address = AddressField()
+    address = AddressField(widget=AddressWidget(attrs={'class': 'Autocomplete'}))
 
     class Meta:
         model = Order

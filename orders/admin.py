@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Order, OrderItem
+from .models import Order, OrderItem, MyLocationModel
 from django_google_maps import widgets as map_widgets
 from django_google_maps import fields as map_fields
 # Register your models here.
@@ -19,3 +19,7 @@ class OrderItem(admin.ModelAdmin):
     list_display = ('id', 'order', 'product', 'total_price')
     list_filter = ('id', 'order', 'product', 'total_price')
 
+
+@admin.register(MyLocationModel)
+class MyLocationModel(admin.ModelAdmin):
+    list_display = ('id',)
