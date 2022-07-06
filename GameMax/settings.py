@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'localflavor',
     'easy_maps',
     'address',
-    'places.apps.PlacesConfig',
+
+    'places',
 
 ]
 
@@ -144,6 +145,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -187,10 +189,10 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 USE_DJANGO_JQUERY = True
 
-GOOGLE_API_KEY = 'AIzaSyDEWvBrnVegE07kwLYp-wHr2DT-1N19nd4'
-GOOGLE_MAPS_API_KEY = 'AIzaSyDEWvBrnVegE07kwLYp-wHr2DT-1N19nd4'
+GOOGLE_API_KEY = 'AIzaSyB0ncIgV1A9rXPT3_7abKqiOkKy3D5JeSY'
+RECAPTCHA_KEY = '6LcDJ8MgAAAAAGhX9VlFoIxsC5GuSBkFfXUNLk72'
+RECAPTCHA_SECRET_KEY='6LcDJ8MgAAAAAG1oYnt3YnmWlmMLG4TZ1vCN3OcR'
 
-PLACES_MAPS_API_KEY='AIzaSyDEWvBrnVegE07kwLYp-wHr2DT-1N19nd4'
-PLACES_MAP_WIDGET_HEIGHT=480
-PLACES_MAP_OPTIONS='{"center": { "lat": 38.971584, "lng": -95.235072 }, "zoom": 10}'
-PLACES_MARKER_OPTIONS='{"draggable": true}'
+GOOGLE_MAPS_API_KEY = 'AIzaSyB0ncIgV1A9rXPT3_7abKqiOkKy3D5JeSY'
+PLACES_MAPS_API_KEY = 'AIzaSyB0ncIgV1A9rXPT3_7abKqiOkKy3D5JeSY'
+

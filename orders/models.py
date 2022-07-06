@@ -6,10 +6,8 @@ from django_countries.fields import CountryField
 from address.models import AddressField
 from places.fields import PlacesField
 from django_google_maps import fields as map_fields
-
-class Rental(models.Model):
-    address = map_fields.AddressField(max_length=200)
-    geolocation = map_fields.GeoLocationField(max_length=100)
+from django_google_maps.fields import AddressField, GeoLocationField
+from places.fields import PlacesField
 
 
 class Order(models.Model):
@@ -17,9 +15,12 @@ class Order(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=125)
     phone_number = PhoneNumberField()
-    country = CountryField()
-    cap = models.IntegerField(null=True)
-    address = models.CharField(max_length=50)
+    address = models.CharField(max_length=300)
+    exact_address = models.CharField(max_length=70, null=True)
+    city = models.CharField(max_length=50, null=True)
+    state = models.CharField(max_length=100, null=True)
+    post_code = models.CharField(max_length=6, null=True)
+    country = models.CharField(max_length=300, null=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -30,6 +31,7 @@ class Order(models.Model):
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, null=True, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, null=True, on_delete=models.CASCADE)
-    total_price = models.IntegerField()
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True)
+    quantity = models.PositiveIntegerField(default=1)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
