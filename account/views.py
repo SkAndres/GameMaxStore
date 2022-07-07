@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login
 from .forms import CustomUserCreationForm
-from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -15,7 +14,7 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect('home')
+                    return redirect('home:home')
     else:
         form = LoginForm()
     return render(request, 'registration/login.html', {'form': form})
@@ -29,12 +28,7 @@ def user_registration(request):
             cd = form.cleaned_data
             user = authenticate(request, username=cd['username'], password=cd['password1'])
             login(request, user)
-            return redirect('home')
+            return redirect('home:home')
     else:
         form = CustomUserCreationForm()
     return render(request, 'registration/sign_up.html', {'form': form})
-
-
-@login_required
-def dashboard(request):
-    return render(request, 'base.html', {'section': dashboard})

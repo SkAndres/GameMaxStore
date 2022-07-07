@@ -1,13 +1,7 @@
+from django.core.validators import MinValueValidator
 from django.db import models
 from home.models import Product
-from cart.cart import Cart
 from phonenumber_field.modelfields import PhoneNumberField
-from django_countries.fields import CountryField
-from address.models import AddressField
-from places.fields import PlacesField
-from django_google_maps import fields as map_fields
-from django_google_maps.fields import AddressField, GeoLocationField
-from places.fields import PlacesField
 
 
 class Order(models.Model):
@@ -32,6 +26,6 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order, null=True, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, null=True, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True)
-    quantity = models.PositiveIntegerField(default=1)
+    quantity = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1)])
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
