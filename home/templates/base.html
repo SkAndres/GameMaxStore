@@ -54,7 +54,7 @@
                             <li><a class="dropdown-item" href="#">My orders</a></li>
                             <li><a class="dropdown-item" href="#">Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{% url 'logout' %}">log out</a></li>
+                            <li><a class="dropdown-item" href="{% url 'account:logout' %}">log out</a></li>
                         </ul>
                     </div>
                     &nbsp;
@@ -66,8 +66,8 @@
                         </button>
                     </a>
                     {% else %}
-                    <a href="{% url 'log_in' %}" type="button" class="btn btn-outline-primary me-2">login</a>
-                    <a href="{% url 'sign-up' %}" type="button" class="btn btn-primary">Sing-up</a>
+                    <a href="{% url 'account:log_in' %}" type="button" class="btn btn-outline-primary me-2">login</a>
+                    <a href="{% url 'account:sign-up' %}" type="button" class="btn btn-primary">Sing-up</a>
                     {% endif %}
                 </div>
             </div>
@@ -78,6 +78,7 @@
 
 <body>
 {% block content %}
+
 
 {% endblock %}
 <div class="container px-4 px-lg-5 my-5">

@@ -3,6 +3,8 @@ from django.contrib.auth import views as auth_view
 from .forms import UserPasswordResetForm, UserSetPasswordForm
 from . import views
 
+app_name = 'account'
+
 urlpatterns = [
     path('log_in/', views.user_login, name='log_in'),
 

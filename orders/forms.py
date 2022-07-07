@@ -2,17 +2,7 @@ from django import forms
 from .models import Order
 from phonenumber_field.widgets import PhoneNumberPrefixWidget
 from phonenumber_field.formfields import PhoneNumberField
-from django_countries.fields import CountryField
-from django_countries.widgets import CountrySelectWidget
-from postal_code.utils import verify_cap
-from postal_code.choices import StatusCAP
 from django.forms import ModelForm
-from localflavor.ua.forms import UAPostalCodeField
-from address.forms import AddressField, AddressWidget
-from django_google_maps import widgets as map_widgets
-from django_google_maps import fields as map_fields
-from django_google_maps.widgets import GoogleMapsAddressWidget
-from places.forms import PlacesField, PlacesWidget
 
 
 class OrderForm(ModelForm):

@@ -3,6 +3,29 @@
 {% block title %}Cart{% endblock %}
 
 {% block content %}
+ {% for message in messages %}
+        {% if message.tags == "error" %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {%endif%}
+        {% endfor %}
+
+        {% for message in messages %}
+            {% if message.tags == "success"%}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{message}}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+        {%endif%}
+        {% endfor %}
+    {%if form.errors %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <h1><strong>{{form.errors}}</strong></h1>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
 <section class="h-100 h-custom">
   <div class="container h-100 py-5">
     <div class="row d-flex justify-content-center align-items-center h-100">

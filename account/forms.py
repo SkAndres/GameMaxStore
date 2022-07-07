@@ -20,6 +20,10 @@ class LoginForm(forms.Form):
                 'for': 'typeEmailX'
     }))
 
+    class Meta:
+        model = User
+        fields = ('username', 'password')
+
 
 class UserPasswordResetForm(PasswordResetForm):
     email = forms.CharField(widget=forms.TextInput(attrs={
