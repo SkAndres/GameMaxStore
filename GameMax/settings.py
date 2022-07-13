@@ -183,4 +183,4 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 USE_DJANGO_JQUERY = True
 
-GOOGLE_MAPS_API_KEY = config("GOOGLE_MAPS_API_KEY")
+GOOGLE_MAPS_API_KEY = os.environ["GOOGLE_MAPS_API_KEY"]
