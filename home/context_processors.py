@@ -4,6 +4,7 @@ from cart.cart import Cart
 from GameMax.settings import GOOGLE_MAPS_API_KEY
 
 
+
 def categories(request):
     return {'categories': Categories.objects.all()}
 
