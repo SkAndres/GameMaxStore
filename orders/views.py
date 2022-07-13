@@ -25,18 +25,27 @@ def order_confirmation(request):
                                                  product=item['product'],
                                                  price=cart.get_total_price(),
                                                  quantity=item['quantity'])
+                subject = 'New Order'
+                html_message = render_to_string("email_template.html",
+                                                {'order_form': order_form, 'order': order, 'cart': cart})
+                plain_message = strip_tags(html_message)
+                send_mail(
+                    'Subject here',
+                    'Here is the message.',
+                    'from@example.com',
+                    [order_form.email],
+                    fail_silently=False,
+                )
+
+
+
                 # updating quantity
                 product = Product.objects.get(title=item['product'])
                 product.quantity -= item['quantity']
                 product.save()
 
                 # sending an email with a confirmation
-                subject = 'New Order'
-                html_message = render_to_string("email_template.html",
-                                                {'order_form': order_form, 'order': order, 'cart': cart})
-                plain_message = strip_tags(html_message)
-                send_mail(subject, plain_message, settings.EMAIL_HOST_USER, [order_form.email],
-                          html_message=html_message)
+
             # clear the cart
             cart.clear()
             return redirect('home:home')

@@ -148,10 +148,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
 
 # settings for sending emails
+EMAIL_HOST = 'smtp.cloudmta.net'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_HOST = 'smtp.mail.yahoo.com', 'feedback-smtp.cloudmta.net'
+EMAIL_HOST_USER = '06131b2f948c506d'
+EMAIL_HOST_PASSWORD = 'HCn2Ms3PEvddtDzqoEPVCzgL'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

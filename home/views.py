@@ -18,6 +18,10 @@ def home(request):
     return render(request, 'home.html', {'items': items})
 
 
+def zoho(request):
+    return render(request, 'zoho-domain-verification.html')
+
+
 def products(request, item_id):
     device = Product.objects.get(pk=item_id)
     form = CartAddProductForm()
