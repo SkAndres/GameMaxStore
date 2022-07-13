@@ -10,13 +10,11 @@ from cart.forms import CartAddProductForm
 def home(request):
     items = Product.objects.all()
     query = request.GET.get('q')
-    print(query)
     if query:
         items = Product.objects.filter(
             Q(title__icontains=query) |
             Q(price__icontains=query)
         )
-
     return render(request, 'home.html', {'items': items})
 
 
