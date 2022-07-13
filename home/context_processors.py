@@ -2,6 +2,7 @@ from django.shortcuts import render
 from home.models import Categories, Product
 from cart.cart import Cart
 from GameMax.settings import GOOGLE_MAPS_API_KEY
+from GameMax import settings
 
 
 
@@ -14,7 +15,7 @@ def cart_items(request):
 
 
 def credentials(request):
-    return {'credentials': GOOGLE_MAPS_API_KEY}
+    return {'credentials': settings.GOOGLE_MAPS_API_KEY}
 
 
 def look_at_search(request):

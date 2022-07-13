@@ -5,6 +5,7 @@ from cart.cart import Cart
 from .models import OrderItem
 from home.models import Product
 from .tasks import NewTask
+from GameMax.settings import GOOGLE_MAPS_API_KEY
 # Create your views here.
 
 
@@ -34,4 +35,5 @@ def order_confirmation(request):
             return redirect('home:home')
     else:
         form = OrderForm()
-    return render(request, "order_confirm.html", {"form": form, 'cart': cart})
+    return render(request, "order_confirm.html", {"form": form, 'cart': cart,
+                                                  'GOOGLE_MAPS_API_KEY': GOOGLE_MAPS_API_KEY})
