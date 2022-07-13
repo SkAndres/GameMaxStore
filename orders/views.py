@@ -9,6 +9,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from .tasks import NewTask
 # Create your views here.
 
 
@@ -25,26 +26,13 @@ def order_confirmation(request):
                                                  product=item['product'],
                                                  price=cart.get_total_price(),
                                                  quantity=item['quantity'])
-                subject = 'New Order'
-                html_message = render_to_string("email_template.html",
-                                                {'order_form': order_form, 'order': order, 'cart': cart})
-                plain_message = strip_tags(html_message)
-                send_mail(
-                    'Subject here',
-                    'Here is the message.',
-                    'from@example.com',
-                    [order_form.email],
-                    fail_silently=False,
-                )
-
-
+                if order:
+                    NewTask.order_task(order_form, order, cart)
 
                 # updating quantity
                 product = Product.objects.get(title=item['product'])
                 product.quantity -= item['quantity']
                 product.save()
-
-                # sending an email with a confirmation
 
             # clear the cart
             cart.clear()
