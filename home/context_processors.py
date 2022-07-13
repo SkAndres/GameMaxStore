@@ -1,5 +1,8 @@
-from home.models import Categories
+from django.shortcuts import render
+from home.models import Categories, Product
 from cart.cart import Cart
+from GameMax.settings import GOOGLE_MAPS_API_KEY
+
 
 
 def categories(request):
@@ -8,3 +11,16 @@ def categories(request):
 
 def cart_items(request):
     return {'cart_items': Cart(request)}
+
+
+def credentials(request):
+    return {'credentials': GOOGLE_MAPS_API_KEY}
+
+
+def look_at_search(request):
+    q = request.Get.get('q') if request.Get.get('q') != None else ''
+    items = Product.objects.filter(title__name__icontains=q)
+    return render(request, 'home.html', {'items': items})
+
+
+

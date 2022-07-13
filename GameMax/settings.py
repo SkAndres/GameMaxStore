@@ -44,17 +44,9 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
-    'django_google_maps',
+    'orders_board.apps.OrdersBoardConfig',
     'phonenumber_field',
-    'django_countries',
-    'ajax_select',
     'storages',
-    'localflavor',
-    'easy_maps',
-    'address',
-
-    'places',
-
 ]
 
 CART_SESSION_ID = 'cart'
@@ -85,6 +77,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'home.context_processors.categories',
                 'home.context_processors.cart_items',
+                'home.context_processors.credentials',
             ],
         },
     },
@@ -98,12 +91,12 @@ WSGI_APPLICATION = 'GameMax.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd9emj1ouc864eo',
-        'USER': 'jrqexbcuvyklds',
-        'PASSWORD': '23500a5eb2216524a92857807bad4d1c78911a5385df73ef09cf8f88ba1e7138',
-        'HOST': 'ec2-52-72-99-110.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': config("ENGINE"),
+        'NAME': config("NAME"),
+        'USER': config("USER"),
+        'PASSWORD': config("PASSWORD"),
+        'HOST': config("HOST"),
+        'PORT': config("PORT"),
     }
 }
 
@@ -189,10 +182,4 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 USE_DJANGO_JQUERY = True
 
-GOOGLE_API_KEY = 'AIzaSyB0ncIgV1A9rXPT3_7abKqiOkKy3D5JeSY'
-RECAPTCHA_KEY = '6LcDJ8MgAAAAAGhX9VlFoIxsC5GuSBkFfXUNLk72'
-RECAPTCHA_SECRET_KEY='6LcDJ8MgAAAAAG1oYnt3YnmWlmMLG4TZ1vCN3OcR'
-
-GOOGLE_MAPS_API_KEY = 'AIzaSyB0ncIgV1A9rXPT3_7abKqiOkKy3D5JeSY'
-PLACES_MAPS_API_KEY = 'AIzaSyB0ncIgV1A9rXPT3_7abKqiOkKy3D5JeSY'
-
+GOOGLE_MAPS_API_KEY = config("GOOGLE_MAPS_API_KEY")

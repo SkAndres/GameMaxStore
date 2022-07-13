@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login
 from .forms import CustomUserCreationForm
+from django.contrib import messages
 
 
 # Create your views here.
@@ -15,6 +16,10 @@ def user_login(request):
                 if user.is_active:
                     login(request, user)
                     return redirect('home:home')
+                else:
+                    messages.error(request, 'The account is disabled')
+            else:
+                messages.error(request, 'Login error. The email address and/or password is incorrect.')
     else:
         form = LoginForm()
     return render(request, 'registration/login.html', {'form': form})

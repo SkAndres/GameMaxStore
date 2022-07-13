@@ -11,6 +11,7 @@
                         <div class="mb-md-5 mt-md-4 pb-5">
                             <div class="form-outline form-white mb-4">
                                 <form method="post">
+                                    {% csrf_token %}
                                     <h1>Registration</h1>
                                     <p class="text-white-50 mb-5">Please enter your data!</p>
                                     {%for field in form%}
@@ -19,7 +20,6 @@
                                     {{field.errors}}
                                     {% endif %}
                                     {% endfor %}
-                                    {% csrf_token %}
                                     <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
                                 </form>
                             </div>

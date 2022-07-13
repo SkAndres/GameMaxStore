@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render
 from .models import Product
 from cart.forms import CartAddProductForm
@@ -6,13 +7,20 @@ from cart.forms import CartAddProductForm
 # Create your views here.
 
 
-def index(request):
-    items = Product.objects.all().order_by('-title')
-    form = CartAddProductForm()
-    return render(request, 'home.html', {'items': items, 'form': form})
+def home(request):
+    items = Product.objects.all()
+    query = request.GET.get('q')
+    print(query)
+    if query:
+        items = Product.objects.filter(
+            Q(title__icontains=query) |
+            Q(price__icontains=query)
+        )
+
+    return render(request, 'home.html', {'items': items})
 
 
-def product(request, item_id):
+def products(request, item_id):
     device = Product.objects.get(pk=item_id)
     form = CartAddProductForm()
     rel_prods = Product.objects.all()

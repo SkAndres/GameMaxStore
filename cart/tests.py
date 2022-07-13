@@ -1,4 +1,7 @@
 from django.test import TestCase
 
+x = [1, 2, 3, 4]
+y = {'number': 1}
 
-# Create your tests here.
+if y['number'] == 1:
+    print('234')

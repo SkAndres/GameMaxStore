@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .forms import OrderForm
@@ -19,9 +20,10 @@ def order_confirmation(request):
         if form.is_valid():
             order_form = form.save()
             for item in cart:
-                order = OrderItem.objects.create(order=order_form,
+                order = OrderItem.objects.create(user=request.user,
+                                                 order=order_form,
                                                  product=item['product'],
-                                                 price=item['price'],
+                                                 price=cart.get_total_price(),
                                                  quantity=item['quantity'])
                 # updating quantity
                 product = Product.objects.get(title=item['product'])
@@ -40,6 +42,4 @@ def order_confirmation(request):
             return redirect('home:home')
     else:
         form = OrderForm()
-    return render(request, "confirmation.html", {"form": form, 'cart': cart})
-
-
+    return render(request, "order_confirm.html", {"form": form, 'cart': cart})

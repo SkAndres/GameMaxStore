@@ -8,9 +8,7 @@ app_name = 'account'
 urlpatterns = [
     path('log_in/', views.user_login, name='log_in'),
 
-    path('log_in/', auth_view.LoginView.as_view(), name='log_in'),
-
-    path('logout/', auth_view.LogoutView.as_view(next_page='home'), name='logout'),
+    path('logout/', auth_view.LogoutView.as_view(next_page='home:home'), name='logout'),
 
     path('password_reset/', auth_view.PasswordResetView.as_view(
         template_name="registration/reset_password.html", form_class=UserPasswordResetForm),

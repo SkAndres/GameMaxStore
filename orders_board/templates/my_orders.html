@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}
+My orders
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="h-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-8 mb-4">
+        <div class="card" style="border-radius: 10px;">
+          <div style="background-color: #366153;" class="card-header px-4 py-5">
+            <h5 style="color:white;">Thanks for your Orders !</h5>
+          </div>
+          {% regroup order_items by order_id as items %}
+          {% for order_id, product in items %}
+          <div class="card-body p-4">
+            <div class="card shadow-0 border mb-4">
+              <div class="card-body">
+                {% for obj in product %}
+                <div class="row">
+                  <div class="col-md-2">
+                    <img src="{{obj.product.image.url}}"
+                     class="img-fluid rounded-3" style="width: 60px;">
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0">{{obj.product}}</p>
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 small">White</p>
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 small">Capacity: 64GB</p>
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 small">Qty: {{obj.quantity}}</p>
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 small">$ {{obj.product.price}}</p>
+                  </div>
+                </div>
+
+                <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
+                {% endfor %}
+                {% for obj in product|slice:1 %}
+                  <div class="d-flex justify-content-between pt-2">
+                    <p class="fw-bold mb-0">Order Details</p>
+                    <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span>{{obj.price}}</p>
+                  </div>
+                  <div class="d-flex justify-content-between pt-2">
+                    <p class="text-muted mb-0">Invoice Number : № {{order_id}}</p>
+                  </div>
+                  <br>
+                  <p class="text-muted mb-0"><span class="fw-bold me-4">Delivery address</p>
+                  <p class="text-muted mb-0">{{obj.order.address}}, {{obj.order.post_code}}</p>
+                  <p class="text-muted mb-0">{{obj.order.city}}</p>
+                  <p class="text-muted mb-0">{{obj.order.state}}</p>
+                  <p class="text-muted mb-0">{{obj.order.country}}</p>
+                {% endfor %}
+              </div>
+
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
