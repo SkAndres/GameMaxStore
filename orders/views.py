@@ -1,14 +1,9 @@
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .forms import OrderForm
 from cart.cart import Cart
 from .models import OrderItem
 from home.models import Product
-from django.core.mail import send_mail
-from django.conf import settings
-from django.template.loader import render_to_string
-from django.utils.html import strip_tags
 from .tasks import NewTask
 # Create your views here.
 

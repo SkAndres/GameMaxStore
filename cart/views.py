@@ -1,12 +1,11 @@
-
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from home.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
 from django.contrib import messages
-from home import views
+
 # Create your views here.
 import json
 

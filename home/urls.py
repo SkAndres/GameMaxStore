@@ -10,5 +10,4 @@ urlpatterns = [
     path('related_prod/<str:item_id>', views.products, name='related_prod'),
     path('chosen_category/<str:new_category_id>', views.chosen_category, name='chosen_category'),
     path('category/<str:category_id>', views.chosen_category, name='chosen_category'),
-    path('zoho-domain-verification.html', views.zoho, name='zoho-domain-verification.html')
 ]

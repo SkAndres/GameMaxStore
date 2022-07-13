@@ -7,8 +7,6 @@ from django.forms import ModelForm
 
 class OrderForm(ModelForm):
 
-
-
     first_name = forms.CharField(widget=forms.TextInput(attrs={
                 'type': 'text',
                 'class': 'form-control',
@@ -77,7 +75,6 @@ class OrderForm(ModelForm):
         'name': 'country',
         'style': 'width: 300px',
         'placeholder': 'Country/Region'}))
-
 
     class Meta:
         model = Order
