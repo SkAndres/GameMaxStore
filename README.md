@@ -18,11 +18,8 @@ User is not authorized |  User is authorized
 Login page |  Registration page
 ![log_in](https://user-images.githubusercontent.com/79806840/178937188-8d328a13-5a40-41cb-ae7a-787734deba5d.png)|![registration](https://user-images.githubusercontent.com/79806840/178937228-f554826a-acf2-459a-8f1d-2383f63a74bb.png) 
 Home page | Cart page
-:-------------------------:|:-------------------------:
 ![auth_home_below](https://user-images.githubusercontent.com/79806840/178937699-5f9bedd1-b88e-4164-ac32-a09ac6e197b9.png)|![cart](https://user-images.githubusercontent.com/79806840/178937823-0921087d-6d39-49cb-8d2a-e08d34a283bd.png)
 Order confirmation page | Order confirmation page
-:-------------------------:|:-------------------------:
 ![ordre_confirm_with_google_api](https://user-images.githubusercontent.com/79806840/178938266-ca721a69-0911-4717-8dfe-876359559042.png) |![sign_order](https://user-images.githubusercontent.com/79806840/178938409-4feb9971-9099-4824-80bb-d77e8be43693.png)
 Email confirmation | My orders page
-:-------------------------:|:-------------------------:
 ![email](https://user-images.githubusercontent.com/79806840/178938762-688883b5-6b05-4311-85bc-727006869b0d.png) | ![my_orders](https://user-images.githubusercontent.com/79806840/178938901-97fe5cf3-6c86-4a57-b1bb-0d84cb52b215.png)
