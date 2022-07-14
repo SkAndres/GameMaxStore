@@ -17,6 +17,8 @@ The project was written in the ***Python used Django framework***, in project as
 User is not authorized |  User is authorized
 :-------------------------:|:-------------------------:
 ![home_log_in](https://user-images.githubusercontent.com/79806840/178934430-4fb60bbb-9fbf-4d27-bbb1-d73b77b460c0.png)  |![auth_home](https://user-images.githubusercontent.com/79806840/178935566-73a900b7-5296-4316-966c-a854fc370d83.png)
+Product page | Product page
+![available ](https://user-images.githubusercontent.com/79806840/179051435-181a3e01-7de6-40be-9ec0-96e9db96423d.png) |![Знімок екрана 2022-07-14 210032](https://user-images.githubusercontent.com/79806840/179051502-992f98b1-4512-4b97-80e7-7effa8f8ace9.png)
 Login page |  Registration page
 ![log_in](https://user-images.githubusercontent.com/79806840/178937188-8d328a13-5a40-41cb-ae7a-787734deba5d.png)|![registration](https://user-images.githubusercontent.com/79806840/178937228-f554826a-acf2-459a-8f1d-2383f63a74bb.png) 
 Home page | Cart page
