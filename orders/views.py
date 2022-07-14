@@ -5,7 +5,8 @@ from cart.cart import Cart
 from .models import OrderItem
 from home.models import Product
 from .tasks import NewTask
-from GameMax.settings import GOOGLE_MAPS_API_KEY
+from GameMax.settings import GOOGLE_MAPS_API_KEY, AWS_JS_LOCATION
+
 # Create your views here.
 
 

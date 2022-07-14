@@ -5,14 +5,11 @@ Order form
 {% endblock %}
 
 {% block content %}
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0ncIgV1A9rXPT3_7abKqiOkKy3D5JeSY&libraries=places"></script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
-        <script>
-        const process = { env: {} };process.env.GOOGLE_MAPS_API_KEY="AIzaSyB0ncIgV1A9rXPT3_7abKqiOkKy3D5JeSY";</script>
-
-        <script type="module" src="templates/index.js">
-        </script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_MAPS_API_KEY}}&libraries=places"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
+<script>const process = { env: {} };process.env.GOOGLE_MAPS_API_KEY="{{GOOGLE_MAPS_API_KEY}}";</script>
+<script type="module" src="https://gamemaxstore-image-bucket.s3.amazonaws.com/static/js/index.js"></script>
 <div class="container-fluid">
   <div class="container px-4  my-5">
      {% for message in messages %}
