@@ -16,7 +16,6 @@ User is not authorized |  User is authorized
 :-------------------------:|:-------------------------:
 ![home_log_in](https://user-images.githubusercontent.com/79806840/178934430-4fb60bbb-9fbf-4d27-bbb1-d73b77b460c0.png)  |![auth_home](https://user-images.githubusercontent.com/79806840/178935566-73a900b7-5296-4316-966c-a854fc370d83.png)
 Login page |  Registration page
-:-------------------------:|:-------------------------:
 ![log_in](https://user-images.githubusercontent.com/79806840/178937188-8d328a13-5a40-41cb-ae7a-787734deba5d.png)|![registration](https://user-images.githubusercontent.com/79806840/178937228-f554826a-acf2-459a-8f1d-2383f63a74bb.png) 
 Home page | Cart page
 :-------------------------:|:-------------------------:
