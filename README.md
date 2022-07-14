@@ -1,6 +1,8 @@
 ﻿# GameMaxStore
 ***GameMaxStore*** is an online shop that includes products, categories of products, search by names products, cart, and also history of orders. Every authorized user can order items that are available. If the user has done an order, an email will be send with details about the order as well as the user can check details about the previous orders in the tab 'My Orders'.
 
+# link: https://gamemaxstore.herokuapp.com/
+
 # Details of the project: 
 The project was written in the ***Python used Django framework***, in project as well are used:
 - Heroku as a cloud for all project 
