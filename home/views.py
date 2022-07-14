@@ -21,7 +21,7 @@ def home(request):
 def products(request, item_id):
     device = Product.objects.get(pk=item_id)
     form = CartAddProductForm()
-    rel_prods = Product.objects.all()[:5]
+    rel_prods = Product.objects.all()[:4]
     return render(request, 'product.html', {'device': device, 'rel_prods': rel_prods, 'form': form})
 
 
