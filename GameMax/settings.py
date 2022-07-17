@@ -26,7 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+#DEBUG = int(os.environ.get('DEBUG', default=1))
 
 ALLOWED_HOSTS = ['*']
 
@@ -91,12 +92,12 @@ WSGI_APPLICATION = 'GameMax.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': config("ENGINE"),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': config("NAME"),
         'USER': config("USER"),
         'PASSWORD': config("PASSWORD"),
-        'HOST': config("HOST"),
-        'PORT': config("PORT"),
+        'HOST': 'ec2-52-72-99-110.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -184,4 +185,4 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 USE_DJANGO_JQUERY = True
 
-GOOGLE_MAPS_API_KEY = os.environ["GOOGLE_MAPS_API_KEY"]
+GOOGLE_MAPS_API_KEY = config("GOOGLE_MAPS_API_KEY")
